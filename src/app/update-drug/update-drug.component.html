@@ -1,0 +1,41 @@
+<div class="container">
+  <div>
+    <h2>Modify Drugs :</h2>
+  </div>
+  <form>
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Drugs</label>
+      <input type="number" [(ngModel)]="currentDrug.id" name="id" class="form-control" />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="currentDrug.genericName" name="genericName" class="form-control nameField" />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Brand</label>
+      <input type="text" [(ngModel)]="currentDrug.brandNames" name="brandNames" class="form-control" />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Dosage</label>
+      <input type="text" [(ngModel)]="currentDrug.dosageForm" name="dosageForm" class="form-control" />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Drug Class</label>
+      <select class="form-control form-control" id="updateidcl" name="updateidcl" [(ngModel)]="updateidcl">
+        <option *ngFor="let d of DrugClass" [value]="d.idcl">
+          {{d.name}}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date</label>
+      <input type="date" [ngModel]="currentDrug.lastUpdated | date: 'yyyy-MM-dd'"
+        (ngModelChange)="currentDrug.lastUpdated = $event" name="dateCreation" class="form-control dateInput" />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <div class="mt-2">
+        <button type="submit" (click)="updateDrug()" class="btn btn-success">Modifer</button>
+      </div>
+    </div>
+  </form>
+</div>
